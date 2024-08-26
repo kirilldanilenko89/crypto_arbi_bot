@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  postgres:
+    image: "postgres:13.3"
+    environment:
+      POSTGRES_PASSWORD: 926main926
+    volumes:
+      - ./postgres/postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  redis:
+    build: ./redis
+    image: "redis:6.2.6-dm"
+    ports:
+      - "6379:6379"
+networks:
+  dollar_network:
+    driver: bridge
+
+
+
+
